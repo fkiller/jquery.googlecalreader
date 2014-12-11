@@ -19,14 +19,13 @@
         }
     </style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
-    <script src="../index.js" type="text/javascript"></script>
+    <script src="../jquery.googlecalreader-1.1.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         // Init Google Calandendar
         $.gCalReader({
-            feedUri: 'http://www.google.com/calendar/feeds/ii293lld3e0aq9luhsnk81r37k%40group.calendar.google.com/public/full', maxresults: 8, format: '{1} - {0}<br/>{3}', displayCount: false,
+            feedUri: 'http://www.google.com/calendar/feeds/en.usa#holiday%40group.v.calendar.google.com/public/full', maxresults: 8, format: '{1} - {0}<br/>{3}', displayCount: false,
             onFinish: function () {
-                // Refresh Shadow Box
                 alert('done');
             }
         });</script>
