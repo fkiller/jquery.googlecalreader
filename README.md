@@ -6,7 +6,7 @@ This plug-in is based on bradoyler/GoogleCalReader-jquery-plugin but has the sam
 
 Ask my twitter(@fkiller) if you have any questions.
 
-#### [Demo](http://fkiller.github.io/jquery.googlecalreader/examples/)
+#### [Demo](http://fkiller.github.io/jquery.googlecalreader/examples/index.html)
 
 ### Default Options
 ```js
