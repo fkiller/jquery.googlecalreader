@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Google Calendar feed reader - migrated version of jquery.googlecalreader-1.0.js
 * 
 * Google Calendar API v1, v2 are now shutdown from 11/17/2014
@@ -29,20 +29,21 @@ function formatDate(strDate, strFormat) {
     var fd, arrDate, am, time;
     var calendar = {
         months: {
-            full: ['', 'January', 'February', 'March', 'April', 'May',
-              'June', 'July', 'August', 'September', 'October',
-              'November', 'December'
+            full: ['', '1월', '2월', '3월', '4월', '5월',
+              '6월', '7월', '8월', '9월', '10월',
+              '11월', '12월'
             ],
-            short: ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-              'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+            short: ['', '1월', '2월', '3월', '4월', '5월',
+              '6월', '7월', '8월', '9월', '10월',
+              '11월', '12월'
             ]
         },
         days: {
-            full: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
-              'Friday', 'Saturday', 'Sunday'
+            full: ['일요일', '월요일', '화요일', '수요일', '목요일',
+              '금요일', '토요일', '일요일'
             ],
-            short: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
-              'Sun'
+            short: ['일', '월', '화', '수', '목', '금', '토',
+              '일'
             ]
         }
     };
@@ -51,15 +52,15 @@ function formatDate(strDate, strFormat) {
         arrDate = /(\d+)\-(\d+)\-(\d+)T(\d+)\:(\d+)/.exec(strDate);
 
         am = (arrDate[4] < 12);
-        time = am ? (parseInt(arrDate[4]) + ':' + arrDate[5] + ' AM') : (
-          arrDate[4] - 12 + ':' + arrDate[5] + ' PM');
+        time = am ? (parseInt(arrDate[4]) + ':' + arrDate[5] + ' 오전') : (
+          arrDate[4] - 12 + ':' + arrDate[5] + ' 오후');
 
         if (time.indexOf('0') === 0) {
             if (time.indexOf(':00') === 1) {
                 if (time.indexOf('AM') === 5) {
-                    time = 'MIDNIGHT';
+                    time = '자정';
                 } else {
-                    time = 'NOON';
+                    time = '정오';
                 }
             } else {
                 time = time.replace('0:', '12:');
@@ -68,7 +69,7 @@ function formatDate(strDate, strFormat) {
 
     } else {
         arrDate = /(\d+)\-(\d+)\-(\d+)/.exec(strDate);
-        time = '00:00 AM';
+        time = '하루일정';
     }
 
     var year = parseInt(arrDate[1]);
@@ -85,29 +86,29 @@ function formatDate(strDate, strFormat) {
             fd = month + '/' + dayNum + '/' + year;
             break;
         case 'LongDate':
-            fd = calendar.days.full[d.getDay()] + ' ' + calendar.months.full[
-              month] + ' ' + dayNum + ', ' + year;
+            fd = year + '년' + ' ' + calendar.months.full[
+              month] + ' ' + dayNum + '일 ' + calendar.days.full[d.getDay()];
             break;
         case 'LongDate+ShortTime':
             fd = calendar.days.full[d.getDay()] + ' ' + calendar.months.full[
-              month] + ' ' + dayNum + ', ' + year + ' ' + time;
+              month] + ' ' + dayNum + '일 ' + year + '년 ' + time;
             break;
         case 'ShortDate+ShortTime':
             fd = month + '/' + dayNum + '/' + year + ' ' + time;
             break;
         case 'DayMonth':
             fd = calendar.days.short[d.getDay()] + ', ' + calendar.months.full[
-              month] + ' ' + dayNum;
+              month] + ' ' + dayNum + '일';
             break;
         case 'MonthDay':
-            fd = calendar.months.full[month] + ' ' + dayNum;
+            fd = calendar.months.full[month] + ' ' + dayNum + '일';
             break;
         case 'YearMonth':
-            fd = calendar.months.full[month] + ' ' + year;
+            fd = year + '년 ' + calendar.months.full[month];
             break;
         default:
-            fd = calendar.days.full[d.getDay()] + ' ' + calendar.months.short[
-              month] + ' ' + dayNum + ', ' + year + ' ' + time;
+            fd = year + '년 ' + calendar.months.short[
+              month] + '월 ' + dayNum + '일 ' + calendar.days.full[d.getDay()] + ' ' + time;
     }
 
     return fd;
@@ -182,11 +183,11 @@ function formatDate(strDate, strFormat) {
                     var url = options.linkUri || item.htmlLink || '';
 
                     if (previousDate != formattedDate) {
-                        $('#eventlist').append('<li class="main_cal_date"><a href="' + url + '" target="_blank">' + formattedDate + '</a></li>');
+                        $('#eventlist').append('<li class="main_cal_date"><a href="' + url + '" rel="shadowbox" target="_blank">' + formattedDate + '</a></li>');
                         previousDate = formattedDate;
                     }
 
-                    $('#eventlist').append('<li class="main_cal_event"><a href="' + url + '" target="_blank">' + eventhtml + '</a></li>');
+                    $('#eventlist').append('<li class="main_cal_event"><a href="' + url + '" rel="shadowbox" target="_blank">' + eventhtml + '</a></li>');
                 });
 
                 if (jQuery.isFunction(options.onFinish)) {
