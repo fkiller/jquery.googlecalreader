@@ -2,7 +2,7 @@ Google Calendar feed reader - migrated version of jquery.googlecalreader-1.0.js
 
 Google Calendar API v1, v2 are now shutdown from 11/17/2014(http://googleappsupdates.blogspot.com/2014/10/deprecated-google-calendar-apis-v1-v2.html), and jquery.googlecalreader-1.0.js doesn't support newer version of API, which is v3.
 
-This plug-in is based on bradoyler/GoogleCalReader-jquery-plugin but has the same interface of jquery.googlecalreader-1.0.js.
+This plug-in is based on [bradoyler/GoogleCalReader-jquery-plugin](https://github.com/bradoyler/GoogleCalReader-jquery-plugin) but has the same interface of jquery.googlecalreader-1.0.js.
 
 Ask my twitter([@fkiller](https://twitter.com/fkiller)) if you have any questions.
 
