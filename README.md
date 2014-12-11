@@ -4,7 +4,7 @@ Google Calendar API v1, v2 are now shutdown from 11/17/2014(http://googleappsupd
 
 This plug-in is based on bradoyler/GoogleCalReader-jquery-plugin but has the same interface of jquery.googlecalreader-1.0.js.
 
-Ask my twitter(@fkiller) if you have any questions.
+Ask my twitter([@fkiller](https://twitter.com/fkiller)) if you have any questions.
 
 #### [Demo](http://fkiller.github.io/jquery.googlecalreader/examples/index.html)
 
